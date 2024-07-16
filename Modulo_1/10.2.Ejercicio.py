@@ -17,3 +17,16 @@ estudiantes = [
     {"nombre": "David", "matematicas": 90, "literatura": 88, "ciencia": 91},
     {"nombre": "Eva", "matematicas": 88, "literatura": 76, "ciencia": 85}
 ]
+
+# Calcular el promedio de cada estudiante y ordenarlos
+for estudiante in estudiantes:
+    calificaciones = list(estudiante.values())[1:]  # Obtener calificaciones
+    promedio = sum(calificaciones) / len(calificaciones)  
+    estudiante["promedio"] = promedio  # Agregar el promedio al diccionario
+
+estudiantes_ordenados = sorted(estudiantes, key=lambda x: x["promedio"], reverse=True)
+
+# Imprimir resultados
+print("Estudiantes ordenados por promedio (descendente):")
+for estudiante in estudiantes_ordenados:
+    print(f'{estudiante["nombre"]}: {estudiante["promedio"]:.2f}')  # Poner a 2 decimales
